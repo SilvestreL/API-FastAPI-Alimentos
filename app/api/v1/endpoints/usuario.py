@@ -3,6 +3,8 @@ from sqlmodel import Session
 from app.db.session import get_session
 from app.schemas.usuario import UserCreate, UserRead
 from app.crud.crud_usuario import create_user, get_user, get_users
+from app.api.deps import get_current_user
+from app.models.usuario import User
 
 router = APIRouter()
 
@@ -13,10 +15,17 @@ def create(user_in: UserCreate, session: Session = Depends(get_session)):
 
 
 @router.get("/{user_id}", response_model=UserRead)
-def read(user_id: int, session: Session = Depends(get_session)):
+def read(
+    user_id: int,
+    session: Session = Depends(get_session),
+    current_user: User = Depends(get_current_user),
+):
     return get_user(session, user_id)
 
 
 @router.get("/", response_model=list[UserRead])
-def read_all(session: Session = Depends(get_session)):
+def read_all(
+    session: Session = Depends(get_session),
+    current_user: User = Depends(get_current_user),
+):
     return get_users(session)
