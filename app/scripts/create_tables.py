@@ -1,8 +1,9 @@
 from app.db.session import engine
-from sqlmodel import (
-    SQLModel,
-)
-from app.models import usuario, company, produto, etiqueta
+from sqlmodel import SQLModel
+from app.models.company import Company
+from app.models.produto import Product
+from app.models.usuario import User
+from app.models.etiqueta import Etiqueta
 
 
 def create_tables() -> None:
