@@ -8,7 +8,7 @@ from app.db.session import engine
 def init_db() -> None:
     with Session(engine) as session:
         # Verifica se já existe uma empresa
-        company = session.query(Company).first()
+        company = session.exec(Company).first()
         if not company:
             company = Company(nome="Empresa Padrão")
             session.add(company)
@@ -16,7 +16,7 @@ def init_db() -> None:
             session.refresh(company)
 
         # Verifica se já existe um usuário admin
-        admin = session.query(User).filter(User.email == "admin@example.com").first()
+        admin = session.exec(User).filter(User.email == "admin@example.com").first()
         if not admin:
             admin = User(
                 name="Admin Master",

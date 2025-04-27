@@ -14,7 +14,7 @@ def seed_products(n=10):
     metodos = ["refrigerado", "congelado", "ambiente"]
     status_list = ["ativo", "inativo"]
 
-    company = session.query(Company).first()
+    company = session.exec(Company).first()
 
     if not company:
         print("❌ Nenhuma empresa encontrada! Rode o seed_db primeiro.")

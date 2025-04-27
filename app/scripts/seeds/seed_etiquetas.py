@@ -12,12 +12,12 @@ def seed_etiquetas(n=20):
     session: Session = next(get_session())
 
     # Verifica se existe pelo menos uma empresa
-    company = session.query(Company).first()
+    company = session.exec(Company).first()
     if not company:
         print("❌ Nenhuma empresa encontrada! Rode o seed_db primeiro.")
         return
 
-    produtos = session.query(Product).all()
+    produtos = session.exec(Product).all()
     if not produtos:
         print("❌ Nenhum produto encontrado! Rode o seed_products primeiro.")
         return

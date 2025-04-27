@@ -8,7 +8,7 @@ def seed():
     session = next(get_session())
 
     # Verifica se já existe uma empresa
-    company = session.query(Company).first()
+    company = session.exec(Company).first()
     if not company:
         company = Company(nome="Empresa Exemplo")
         session.add(company)
@@ -16,7 +16,7 @@ def seed():
         session.refresh(company)
 
     # Verifica se já existe um usuário
-    user = session.query(User).filter(User.email == "admin@example.com").first()
+    user = session.exec(User).filter(User.email == "admin@example.com").first()
     if not user:
         user = User(
             name="Admin",
