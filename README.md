@@ -17,7 +17,7 @@ Projeto desenvolvido para avaliação técnica de back-end, utilizando **FastAPI
 
 ## 🛠️ Como Executar
 
-### 🛆 Usando Docker (recomendado)
+### 𞿖️ Usando Docker (recomendado)
 
 1. Clone o repositório:
 
@@ -30,6 +30,13 @@ cd teste-backend-fastapi
 
 ```bash
 cp .env.example .env
+```
+
+**Conteúdo do `.env.example`:**
+
+```env
+FIRST_SUPERUSER=admin@example.com
+FIRST_SUPERUSER_PASSWORD=123456
 ```
 
 3. Suba os containers:
@@ -57,17 +64,13 @@ pip install -r requirements.txt
 
 2. Configure o arquivo `.env` baseado no `.env.example`.
 
-3. Execute os scripts para criar o banco:
-
-```bash
-python -m app.scripts.reset_all
-```
-
-4. Rode o servidor:
+3. Rode o servidor:
 
 ```bash
 uvicorn app.main:app --reload
 ```
+
+(O banco de dados PostgreSQL precisa estar rodando na sua máquina.)
 
 ---
 
@@ -75,7 +78,7 @@ uvicorn app.main:app --reload
 
 Utilizamos **JWT Token** para proteger as rotas privadas.
 
-Faça o login:
+Para fazer login:
 
 ```
 POST /api/v1/auth/login
@@ -102,7 +105,7 @@ Credenciais padrão:
 | GET    | `/api/v1/users/`          | Listar usuários           |
 | GET    | `/api/v1/users/{user_id}` | Buscar usuário específico |
 
-### 🛆 Produtos
+### 𞿖️ Produtos
 
 | Método | Endpoint                        | Descrição                 |
 | :----- | :------------------------------ | :------------------------ |
@@ -135,7 +138,7 @@ Para rodar os testes:
 pytest -v
 ```
 
-Para gerar relatório de cobertura:
+Para gerar um relatório de cobertura:
 
 ```bash
 pytest --cov=app tests/
@@ -170,21 +173,27 @@ requirements.txt
 
 1. Faça um fork deste repositório.
 2. Crie uma branch com a sua feature:
-   ```bash
-   git checkout -b minha-feature
-   ```
+
+```bash
+git checkout -b minha-feature
+```
+
 3. Faça commit das suas alterações:
-   ```bash
-   git commit -m 'feat: Minha nova feature'
-   ```
+
+```bash
+git commit -m 'feat: Minha nova feature'
+```
+
 4. Envie para o seu repositório:
-   ```bash
-   git push origin minha-feature
-   ```
+
+```bash
+git push origin minha-feature
+```
+
 5. Abra um Pull Request! 🚀
 
 ---
 
 ## 📝 Licença
 
-Este projeto está sob licença MIT.
+Este projeto está sob a licença MIT.
